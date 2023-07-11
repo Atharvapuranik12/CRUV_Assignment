@@ -82,12 +82,12 @@ class Match:
 
     def start_match(self):
         for over in range(1, 7):
-            balls_count = 0  # Reset the ball count to 0 at the beginning of each over
+            balls_count = 0  
             for ball in range(1, 7):
-                balls_count += 1  # Increment the ball count
+                balls_count += 1  
                 outcome = self.umpire.predict_outcome_of_ball(self.teams.players)
-                self.commentator.provide_commentary_for_ball(balls_count, outcome)  # Ball number starts from 1
-                if balls_count % 6 == 0:  # Check if 6 balls are completed
+                self.commentator.provide_commentary_for_ball(balls_count, outcome)  
+                if balls_count % 6 == 0: 
                    
                     print("**************Over***************")  
                     print("\n")
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     teams = Teams(players)
     field = Field(100, 50, "good", 0.5)
     umpire = Umpire(field)
-    match = Match(teams, field, umpire, None)  # Passing None as commentator for now
-    commentator = Commentator(match)  # Creating the commentator instance
-    match.commentator = commentator  # Assigning the commentator to the match instance
+    match = Match(teams, field, umpire, None) 
+    commentator = Commentator(match)  
+    match.commentator = commentator  
     match.start_match()
